@@ -11,7 +11,6 @@
 ## Запуск
 
 ### Шаги для запуска
-
 - Склонируйте репозиторий:
    ```bash
     git clone https://github.com/sharkwithmilk/CalculatorAPI
@@ -27,7 +26,7 @@
 - Запустите сервер:
     ```bash
     PORT=8080 go run ./cmd/main.go
-
+> Примечание: Используйте GitBash(cmd не принимает значение порта) а иначе копируйте без порта: go run ./cmd/main.go
 - По умолчанию сервис доступен по адресу: [http://localhost:8080/api/v1/calculate](http://localhost:8080/api/v1/calculate)
    
 > Примечание: Если порт 8080 уже занят, вы можете указать другой порт, задав переменную PORT:
