@@ -11,7 +11,7 @@
 ## Запуск
 
 ### Шаги для запуска
-
+> Примечание: Используйте GitBash(cmd не принимает значение порта)
 - Склонируйте репозиторий:
    ```bash
     git clone https://github.com/sharkwithmilk/CalculatorAPI
