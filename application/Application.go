@@ -42,7 +42,7 @@ func calculateHandler(w http.ResponseWriter, r *http.Request) {
 	result, err := calc.Calc(request.Expression)
 	if err != nil {
 		switch err {
-		case calc.ErrEmptyExpression, calc.ErrNumberParsing, calc.ErrInvalidParentheses:
+		case calc.ErrEmptyExpression, calc.ErrNumberParsing, calc.ErrInvalidParentheses, calc.ErrDivisionByZero, calc.ErrInvalidExpression, calc.ErrUnrecognizedNumber, calc.ErrMissingNumber:
 			respondWithError(w, http.StatusUnprocessableEntity, "Expression is not valid")
 		default:
 			respondWithError(w, http.StatusInternalServerError, "Internal server error")

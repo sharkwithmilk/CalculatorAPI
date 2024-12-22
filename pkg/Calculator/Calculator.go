@@ -9,11 +9,31 @@ func Calc(expression string) (float64, error) {
 	if expression == "" {
 		return 0, ErrEmptyExpression
 	}
+	if containsConsecutiveOperators(expression) {
+		return 0, ErrInvalidExpression
+	}
 	res, err := eval(expression)
 	if err != nil {
 		return 0, err
 	}
 	return res, nil
+}
+func containsConsecutiveOperators(expression string) bool {
+	operators := "+-*/"
+	prevWasOperator := false
+
+	for _, char := range expression {
+		if strings.ContainsRune(operators, char) {
+			if prevWasOperator {
+				return true
+			}
+			prevWasOperator = true
+		} else {
+			prevWasOperator = false
+		}
+	}
+
+	return false
 }
 
 func eval(str string) (float64, error) {
